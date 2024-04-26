@@ -1,0 +1,299 @@
+# SwiftFormat version: 0.53.8
+
+# Rules
+--rules \
+anyObjectProtocol, \
+applicationMain, \
+assertionFailures, \
+blankLineAfterImports, \
+blankLinesAroundMark, \
+blankLinesAtEndOfScope, \
+blankLinesAtStartOfScope, \
+blankLinesBetweenImports, \
+blankLinesBetweenChainedFunctions, \
+blankLinesBetweenScopes, \
+braces, \
+conditionalAssignment, \
+consecutiveBlankLines, \
+consecutiveSpaces, \
+duplicateImports, \
+elseOnSameLine, \
+emptyBraces, \
+enumNamespaces, \
+extensionAccessControl, \
+genericExtensions, \
+hoistPatternLet, \
+indent, \
+initCoderUnavailable, \
+isEmpty, \
+leadingDelimiters, \
+linebreakAtEndOfFile, \
+linebreaks, \
+markTypes, \
+modifierOrder, \
+numberFormatting, \
+opaqueGenericParameters, \
+preferForLoop, \
+redundantBackticks, \
+redundantBreak, \
+redundantClosure, \
+redundantExtensionACL, \
+redundantFileprivate, \
+redundantGet, \
+redundantInit, \
+redundantInternal, \
+redundantLet, \
+redundantLetError, \
+redundantNilInit, \
+redundantObjc, \
+redundantOptionalBinding, \
+redundantParens, \
+redundantPattern, \
+redundantSelf, \
+redundantStaticSelf, \
+redundantType, \
+redundantVoidReturnType, \
+semicolons, \
+sortDeclarations, \
+sortImports, \
+spaceAroundBraces, \
+spaceAroundBrackets, \
+spaceAroundComments, \
+spaceAroundGenerics, \
+spaceAroundOperators, \
+spaceAroundParens, \
+spaceInsideBraces, \
+spaceInsideBrackets, \
+spaceInsideComments, \
+spaceInsideGenerics, \
+spaceInsideParens, \
+strongOutlets, \
+strongifiedSelf, \
+todos, \
+trailingClosures, \
+trailingCommas, \
+trailingSpace, \
+typeSugar, \
+void, \
+wrap, \
+wrapArguments, \
+wrapAttributes, \
+wrapConditionalBodies, \
+wrapEnumCases, \
+wrapLoopBodies, \
+wrapMultilineStatementBraces, \
+wrapSwitchCases, \
+yodaConditions
+
+--disable \
+# --------------------
+# This rules is disabled by default.
+acronyms, \
+# We want to use &&, instead of comma, if possible.
+andOperator, \
+# This rules is disabled by default.
+blockComments, \
+# We want to be intentional about wether comments are doc comments or not.
+docComments, \
+# We don't want our fileheader to be linted.
+fileHeader, \
+# We don't have file names in file headers.
+headerFileName, \
+# We want the try and await keywords to be at the expressions they are referring to.
+hoistAwait, \
+hoistTry, \
+# This rule is disabled by default.
+noExplicitOwnership, \
+# Disabling this rule, because it changes the code too much. It sorts all declarations by visibility.
+organizeDeclarations, \
+# Introduces too many errors.
+preferKeyPath, \
+# Raw values should not be removed, as they might be stored persistently and that could be problematic when refactoring.
+redundantRawValues, \
+# This removes return statements in properties, which is not cool.
+redundantReturn, \
+# Often it makes sense for cases to have a specific logical order, instead of the alphabetic one.
+# Example: UIGestureRecognizer.state
+sortedSwitchCases, \
+# We want to preserve a logical order for protocol composition typealiases.
+sortTypealiases, \
+# It's good to have parameter names, even if you don't use the parameter. It helps with documentation.
+unusedArguments, \
+# This rule does not make the code much clearer.
+wrapMultilineConditionalAssignment, \
+# This rule incorrectly breaks doc comments.
+wrapSingleLineComments
+
+# Rule Options
+
+# acronyms options
+--acronyms ID,URL,UUID, UDID, GID, HTTP, HTTPS, ASCII
+
+# blankLinesAroundMark options
+--lineaftermarks true
+
+# blankLinesAtStartOfScope options
+--typeblanklines remove
+
+# braces options
+--allman false
+
+# docComments options
+--doccomments before-declarations
+
+# elseOnSameLine options
+--elseposition same-line
+--guardelse auto
+
+# emptyBraces options
+--emptybraces no-space
+
+# enumNamespaces options
+--enumnamespaces always
+
+# extensionAccessControl options
+--extensionacl on-declarations
+
+# fileHeader options
+--header ignore
+
+# genericExtensions options
+--generictypes
+
+# hoistAwait options
+--asynccapturing
+
+# hoistPatternLet options
+--patternlet hoist
+
+# hoistTry options
+--throwcapturing
+
+# indent options
+--indent tab
+--indentcase false
+--indentstrings false
+--tabwidth unspecified
+--xcodeindentation disabled
+--smarttabs enabled
+--ifdef no-indent
+
+# linebreaks options
+--linebreaks lf
+
+# markTypes options
+--marktypes never
+--typemark "MARK: - %t"
+--markextensions always
+--extensionmark "MARK: - %t + %c"
+--groupedextension "MARK: %c"
+
+# modifierOrder options
+--modifierorder public,internal,private,final,override,convenience,static,class,weak,lazy
+
+# numberFormatting options
+--decimalgrouping 3,0
+--binarygrouping 4,0
+--octalgrouping 4,0
+--hexgrouping 4,0
+--fractiongrouping disabled
+--exponentgrouping disabled
+--hexliteralcase uppercase
+--exponentcase lowercase
+
+# opaqueGenericParameters options
+--someany true
+
+# organizeDeclarations options
+--categorymark "MARK: %c"
+--markcategories true
+--beforemarks
+--lifecycle
+--organizetypes actor,class,enum,struct
+--structthreshold 0
+--classthreshold 0
+--enumthreshold 0
+--extensionlength 0
+
+# preferForLoop options
+--anonymousforeach convert
+--onelineforeach convert
+
+# redundantSelf options
+--self remove
+--selfrequired
+
+# redundantType options
+--redundanttype inferred
+
+# redundantVoidReturnType options
+--closurevoid remove
+
+# semicolons options
+--semicolons inline
+
+# sortedImports options
+--importgrouping alpha
+
+# spaceAroundOperators options
+--operatorfunc spaced
+--nospaceoperators
+--ranges spaced
+
+# trailingClosures options
+--trailingclosures
+--nevertrailing
+
+# trailingCommas options
+--commas always
+
+# trailingSpace options
+--trimwhitespace always
+
+# typeSugar options
+--shortoptionals always
+
+# unusedArguments options
+--stripunusedargs always
+
+# void options
+--voidtype void
+
+# wrap options
+--maxwidth 120
+--nowrapoperators
+--assetliterals visual-width
+--wrapternary default
+
+# wrapArguments options
+--wraparguments before-first
+--wrapcollections before-first
+--wrapconditions before-first
+--wrapparameters before-first
+--wrapreturntype preserve
+--wraptypealiases before-first
+--closingparen balanced
+
+# wrapAttributes options
+--funcattributes prev-line
+--typeattributes prev-line
+--varattributes preserve
+
+# wrapEnumCases options
+--wrapenumcases always
+
+# yodaConditions options
+--yodaswap always
+
+# global options
+--conflictmarkers reject
+--fragment false
+
+# file options
+--exclude \
+**/R.generated.swift, \
+build, \
+DerivedData, \
+SourcePackageCache, \
+temp, \
+vendor
