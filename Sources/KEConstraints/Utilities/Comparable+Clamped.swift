@@ -29,27 +29,27 @@
 import Foundation
 
 extension Comparable {
-	public func clamped(to range: ClosedRange<Self>) -> Self {
+	func clamped(to range: ClosedRange<Self>) -> Self {
 		return min(max(self, range.lowerBound), range.upperBound)
 	}
 
-	public mutating func clamp(to range: ClosedRange<Self>) {
+	mutating func clamp(to range: ClosedRange<Self>) {
 		self = min(max(self, range.lowerBound), range.upperBound)
 	}
 
-	public func clamped(to range: PartialRangeFrom<Self>) -> Self {
+	func clamped(to range: PartialRangeFrom<Self>) -> Self {
 		return max(self, range.lowerBound)
 	}
 
-	public mutating func clamp(to range: PartialRangeFrom<Self>) {
+	mutating func clamp(to range: PartialRangeFrom<Self>) {
 		self = max(self, range.lowerBound)
 	}
 
-	public func clamped(to range: PartialRangeThrough<Self>) -> Self {
+	func clamped(to range: PartialRangeThrough<Self>) -> Self {
 		return min(self, range.upperBound)
 	}
 
-	public mutating func clamp(to range: PartialRangeThrough<Self>) {
+	mutating func clamp(to range: PartialRangeThrough<Self>) {
 		self = min(self, range.upperBound)
 	}
 }
