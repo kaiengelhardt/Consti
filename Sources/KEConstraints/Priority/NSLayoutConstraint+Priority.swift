@@ -1,11 +1,11 @@
 //
 //  Created by Kai Engelhardt on 12.11.17
-//  Copyright © 2018 Kai Engelhardt. All rights reserved.
+//  Copyright © 2024 Kai Engelhardt. All rights reserved.
 //
 //  Distributed under the permissive MIT license
 //  Get the latest version from here:
 //
-//  https://github.com/kaiengelhardt/KEFoundation
+//  https://github.com/kaiengelhardt/Consti
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal

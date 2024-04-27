@@ -5,7 +5,7 @@
 //  Distributed under the permissive MIT license
 //  Get the latest version from here:
 //
-//  https://github.com/kaiengelhardt/KEConstraints
+//  https://github.com/kaiengelhardt/Consti
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal

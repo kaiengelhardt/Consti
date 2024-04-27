@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "KEConstraints",
+	name: "Consti",
 	platforms: [
 		.iOS(.v13),
 		.macOS(.v10_15),
@@ -12,13 +12,13 @@ let package = Package(
 	],
 	products: [
 		.library(
-			name: "KEConstraints",
-			targets: ["KEConstraints"]
+			name: "Consti",
+			targets: ["Consti"]
 		),
 	],
 	targets: [
 		.target(
-			name: "KEConstraints",
+			name: "Consti",
 			swiftSettings: [
 				.enableExperimentalFeature("StrictConcurrency"),
 			]
