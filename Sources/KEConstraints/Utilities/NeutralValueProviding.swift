@@ -28,6 +28,6 @@
 
 import Foundation
 
-public protocol DefaultValueProviding {
-	static var defaultValue: Self { get }
+public protocol NeutralValueProviding {
+	static var neutralValue: Self { get }
 }

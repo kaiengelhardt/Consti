@@ -52,9 +52,9 @@ public struct ActiveConstraint<Constraint: ConstraintToggleable> where Constrain
 	}
 }
 
-extension ActiveConstraint where Constraint: DefaultValueProviding {
+extension ActiveConstraint where Constraint: NeutralValueProviding {
 	public init() {
-		wrappedValue = Constraint.defaultValue
+		wrappedValue = Constraint.neutralValue
 	}
 }
 
@@ -90,8 +90,8 @@ extension Optional: ConstraintToggleable where Wrapped: ConstraintToggleable {
 
 // MARK: - Optional + DefaultValueProviding
 
-extension Optional: DefaultValueProviding where Wrapped: NSLayoutConstraint {
-	public static var defaultValue: Wrapped? {
+extension Optional: NeutralValueProviding where Wrapped: NSLayoutConstraint {
+	public static var neutralValue: Wrapped? {
 		return nil
 	}
 }
@@ -110,8 +110,8 @@ extension Array: ConstraintToggleable where Element: NSLayoutConstraint {
 
 // MARK: - Array + DefaultValueProviding
 
-extension Array: DefaultValueProviding where Element: NSLayoutConstraint {
-	public static var defaultValue: [Element] {
+extension Array: NeutralValueProviding where Element: NSLayoutConstraint {
+	public static var neutralValue: [Element] {
 		return []
 	}
 }
