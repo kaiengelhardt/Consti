@@ -34,49 +34,15 @@ import AppKit
 #endif
 
 extension NSLayoutConstraint.Priority {
-	public static func + (lhs: NSLayoutConstraint.Priority, rhs: Float) -> NSLayoutConstraint.Priority {
-		return NSLayoutConstraint.Priority((lhs.rawValue + rhs).clamped(to: 0 ... 1_000))
-	}
-
-	public static func - (lhs: NSLayoutConstraint.Priority, rhs: Float) -> NSLayoutConstraint.Priority {
-		return NSLayoutConstraint.Priority((lhs.rawValue - rhs).clamped(to: 0 ... 1_000))
-	}
-
-	public static func + (lhs: Float, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint.Priority {
-		return NSLayoutConstraint.Priority((lhs + rhs.rawValue).clamped(to: 0 ... 1_000))
-	}
-
-	public static func - (lhs: Float, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint.Priority {
-		return NSLayoutConstraint.Priority((lhs - rhs.rawValue).clamped(to: 0 ... 1_000))
-	}
-
-	public static func + (lhs: NSLayoutConstraint.Priority, rhs: Int) -> NSLayoutConstraint.Priority {
-		return lhs + Float(rhs)
-	}
-
-	public static func - (lhs: NSLayoutConstraint.Priority, rhs: Int) -> NSLayoutConstraint.Priority {
-		return lhs - Float(rhs)
-	}
-
-	public static func + (lhs: Int, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint.Priority {
-		return Float(lhs) + rhs
-	}
-
-	public static func - (lhs: Int, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint.Priority {
-		return Float(lhs) - rhs
-	}
-
-	public static func + (
-		lhs: NSLayoutConstraint.Priority,
-		rhs: NSLayoutConstraint.Priority
-	) -> NSLayoutConstraint.Priority {
+	public static func + (lhs: NSLayoutConstraint.Priority, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint
+		.Priority
+	{
 		return NSLayoutConstraint.Priority((lhs.rawValue + rhs.rawValue).clamped(to: 0 ... 1_000))
 	}
 
-	public static func - (
-		lhs: NSLayoutConstraint.Priority,
-		rhs: NSLayoutConstraint.Priority
-	) -> NSLayoutConstraint.Priority {
+	public static func - (lhs: NSLayoutConstraint.Priority, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint
+		.Priority
+	{
 		return NSLayoutConstraint.Priority((lhs.rawValue - rhs.rawValue).clamped(to: 0 ... 1_000))
 	}
 }
