@@ -34,15 +34,17 @@ import AppKit
 #endif
 
 extension NSLayoutConstraint.Priority {
-	public static func + (lhs: NSLayoutConstraint.Priority, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint
-		.Priority
-	{
+	public static func + (
+		lhs: NSLayoutConstraint.Priority,
+		rhs: NSLayoutConstraint.Priority
+	) -> NSLayoutConstraint.Priority {
 		return NSLayoutConstraint.Priority((lhs.rawValue + rhs.rawValue).clamped(to: 0 ... 1_000))
 	}
 
-	public static func - (lhs: NSLayoutConstraint.Priority, rhs: NSLayoutConstraint.Priority) -> NSLayoutConstraint
-		.Priority
-	{
+	public static func - (
+		lhs: NSLayoutConstraint.Priority,
+		rhs: NSLayoutConstraint.Priority
+	) -> NSLayoutConstraint.Priority {
 		return NSLayoutConstraint.Priority((lhs.rawValue - rhs.rawValue).clamped(to: 0 ... 1_000))
 	}
 }
