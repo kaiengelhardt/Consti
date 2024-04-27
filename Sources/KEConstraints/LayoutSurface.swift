@@ -50,44 +50,44 @@ public protocol LayoutSurface {
 extension LayoutSurface {
 	public func constraintsMatchingEdges(
 		of surface: LayoutSurface?,
-		insetBy inset: NSDirectionalEdgeInsets = .zero,
+		insetBy insets: NSDirectionalEdgeInsets = .zero,
 		relation: NSLayoutConstraint.Relation = .equal
 	) -> [NSLayoutConstraint] {
 		guard let surface else {
 			return []
 		}
 
-		let invertedInset = NSDirectionalEdgeInsets(
-			top: -inset.top,
-			leading: -inset.leading,
-			bottom: -inset.bottom,
-			trailing: -inset.trailing
+		let invertedInsets = NSDirectionalEdgeInsets(
+			top: -insets.top,
+			leading: -insets.leading,
+			bottom: -insets.bottom,
+			trailing: -insets.trailing
 		)
 
 		let constraints: [NSLayoutConstraint] = switch relation {
 		case .equal:
 			[
-				surface.leadingAnchor.constraint(equalTo: leadingAnchor, constant: invertedInset.leading),
-				trailingAnchor.constraint(equalTo: surface.trailingAnchor, constant: invertedInset.trailing),
-				surface.topAnchor.constraint(equalTo: topAnchor, constant: invertedInset.top),
-				bottomAnchor.constraint(equalTo: surface.bottomAnchor, constant: invertedInset.bottom),
+				surface.leadingAnchor.constraint(equalTo: leadingAnchor, constant: invertedInsets.leading),
+				trailingAnchor.constraint(equalTo: surface.trailingAnchor, constant: invertedInsets.trailing),
+				surface.topAnchor.constraint(equalTo: topAnchor, constant: invertedInsets.top),
+				bottomAnchor.constraint(equalTo: surface.bottomAnchor, constant: invertedInsets.bottom),
 			]
 		case .lessThanOrEqual:
 			[
-				surface.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor, constant: invertedInset.leading),
-				trailingAnchor.constraint(lessThanOrEqualTo: surface.trailingAnchor, constant: invertedInset.trailing),
-				surface.topAnchor.constraint(lessThanOrEqualTo: topAnchor, constant: invertedInset.top),
-				bottomAnchor.constraint(lessThanOrEqualTo: surface.bottomAnchor, constant: invertedInset.bottom),
+				surface.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor, constant: invertedInsets.leading),
+				trailingAnchor.constraint(lessThanOrEqualTo: surface.trailingAnchor, constant: invertedInsets.trailing),
+				surface.topAnchor.constraint(lessThanOrEqualTo: topAnchor, constant: invertedInsets.top),
+				bottomAnchor.constraint(lessThanOrEqualTo: surface.bottomAnchor, constant: invertedInsets.bottom),
 			]
 		case .greaterThanOrEqual:
 			[
-				surface.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: invertedInset.leading),
+				surface.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: invertedInsets.leading),
 				trailingAnchor.constraint(
 					greaterThanOrEqualTo: surface.trailingAnchor,
-					constant: invertedInset.trailing
+					constant: invertedInsets.trailing
 				),
-				surface.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: invertedInset.top),
-				bottomAnchor.constraint(greaterThanOrEqualTo: surface.bottomAnchor, constant: invertedInset.bottom),
+				surface.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: invertedInsets.top),
+				bottomAnchor.constraint(greaterThanOrEqualTo: surface.bottomAnchor, constant: invertedInsets.bottom),
 			]
 		@unknown default:
 			[]
