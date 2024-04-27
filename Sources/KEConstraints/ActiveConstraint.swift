@@ -35,7 +35,7 @@ import AppKit
 
 @MainActor
 @propertyWrapper
-public struct ActiveConstraint<Constraint: ConstraintActivatable> where Constraint: Equatable {
+public struct ActiveConstraint<Constraint: ConstraintToggleable> where Constraint: Equatable {
 	public var wrappedValue: Constraint {
 		didSet {
 			guard wrappedValue != oldValue else {
@@ -59,14 +59,14 @@ extension ActiveConstraint where Constraint: DefaultValueProviding {
 }
 
 @MainActor
-public protocol ConstraintActivatable {
+public protocol ConstraintToggleable {
 	func activate()
 	func deactivate()
 }
 
 // MARK: - NSLayoutConstraint + ConstraintActivatable
 
-extension NSLayoutConstraint: ConstraintActivatable {
+extension NSLayoutConstraint: ConstraintToggleable {
 	public func activate() {
 		isActive = true
 	}
@@ -78,7 +78,7 @@ extension NSLayoutConstraint: ConstraintActivatable {
 
 // MARK: - Optional + ConstraintActivatable
 
-extension Optional: ConstraintActivatable where Wrapped: ConstraintActivatable {
+extension Optional: ConstraintToggleable where Wrapped: ConstraintToggleable {
 	public func activate() {
 		self?.activate()
 	}
@@ -98,7 +98,7 @@ extension Optional: DefaultValueProviding where Wrapped: NSLayoutConstraint {
 
 // MARK: - Array + ConstraintActivatable
 
-extension Array: ConstraintActivatable where Element: NSLayoutConstraint {
+extension Array: ConstraintToggleable where Element: NSLayoutConstraint {
 	public func activate() {
 		NSLayoutConstraint.activate(self)
 	}
