@@ -6,7 +6,7 @@ Consti is a tiny library to make working with Auto Layout more convenient.
 # Installation
 Add this to your `Package.swift` file.
 
-```
+```swift
 // Add this to the dependencies of your package.
 .package(url: "https://github.com/kaiengelhardt/consti", from: "1.0.0"),
 
@@ -20,7 +20,7 @@ Add this to your `Package.swift` file.
 Consti provides you convenience APIs for the most common cases of creating Auto Layout constraints.
 
 ### 1. Pin to Edges
-```
+```swift
 view.addSubview(contentView)
 contentView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -37,7 +37,7 @@ NSLayoutConstraint.activate(contentView.constraintsMatchingEdgesOfSuperview())
 ```
 
 ### 2. Pin to Safe Area and Any Other Layout Guide
-```
+```swift
 view.addSubview(contentView)
 contentView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -54,7 +54,7 @@ NSLayoutConstraint.activate(contentView.constraintsMatchingEdges(of: view.safeAr
 ```
 
 ### 3. Provide Insets, Use Relations and More
-```
+```swift
 view.addSubview(contentView)
 contentView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -78,7 +78,7 @@ NSLayoutConstraint.activate(
 ```
 
 ### 4. Set Priorities
-```
+```swift
 NSLayoutConstraint.activate([
 	contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
 	// Set priority without needing to assign to a local variable.
@@ -94,7 +94,7 @@ NSLayoutConstraint.activate(contentView.constraintsMatchingEdges(of: view.safeAr
 ```
 
 ### 5. Other
-```
+```swift
 // Set up aspect ratio.
 imageView.aspectRatioConstraint().isActive = true // 1:1 aspect ratio
 imageView.aspectRatioConstraint(ratio: 16 / 9).isActive = true // 16:9 aspect ratio
@@ -117,7 +117,7 @@ NSLayoutConstraint.activate(buttons.constraintsMatchingSize())
 ### Example
 Here's an example showing how you might change the constraints for a button that should have a completely different layout in portrait vs landscape on iPhone.
 
-```
+```swift
 @ActiveConstraint() private var buttonConstraints: [NSLayoutConstraint]
 
 override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
