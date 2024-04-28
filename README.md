@@ -3,6 +3,9 @@
 # Consti
 Consti is a tiny library to make working with Auto Layout more convenient.
 
+# Supported Platforms
+Consti supports iOS, macOS, macCatalyst, tvOS and visionOS.
+
 # Installation
 Add this to your `Package.swift` file.
 
@@ -13,7 +16,6 @@ Add this to your `Package.swift` file.
 // Then add this to the dependencies of the targets you want to use Consti in.
 .product(name: "Consti", package: "Consti"),
 ```
-
 # Usage
 
 ## Constraint Creation APIs
