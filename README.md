@@ -8,10 +8,10 @@ Consti is a tiny library to make working with Auto Layout more convenient.
 ## Constraint Creation APIs
 Consti provides you convenience APIs for the most common cases of creating Auto Layout constraints.
 
-### 1. Pinning to Edges
+### 1. Pin to Edges
 ```
 view.addSubview(contentView)
-contentView.translatesAutoResizingMaskIntoConstraints = false
+contentView.translatesAutoresizingMaskIntoConstraints = false
 
 // Instead of this:
 NSLayoutConstraint.activate([
@@ -25,10 +25,10 @@ NSLayoutConstraint.activate([
 NSLayoutConstraint.activate(contentView.constraintsMatchingEdgesOfSuperview())
 ```
 
-### 2. Pin to Safe Area
+### 2. Pin to Safe Area and Any Other Layout Guide
 ```
 view.addSubview(contentView)
-contentView.translatesAutoResizingMaskIntoConstraints = false
+contentView.translatesAutoresizingMaskIntoConstraints = false
 
 // Instead of this:
 NSLayoutConstraint.activate([
@@ -42,17 +42,61 @@ NSLayoutConstraint.activate([
 NSLayoutConstraint.activate(contentView.constraintsMatchingEdges(of: view.safeAreaLayoutGuide))
 ```
 
-### 3. Set Priorities
+### 3. Provide Insets, Use Relations and More
 ```
-let constraints = 
+view.addSubview(contentView)
+contentView.translatesAutoresizingMaskIntoConstraints = false
+
+// Constrain contentView the have at most the area of the view, minus 40 points on each side.
+NSLayoutConstraint.activate(
+	contentView.constraintsMatchingEdges(
+		of: view,
+		insetBy: NSDirectionalEdgeInsets(top: 40, leading: 40, bottom: 40, trailing: 40),
+		relation: .lessThanOrEqual
+	)
+)
+
+// Constrain contentView to have the double the width and 32 points more in height than someOtherView.
+NSLayoutConstraint.activate(
+	contentView.constraintsMatchingSize(
+		of: someOtherView,
+		resizedBy: CGSize(width: 0, height: 32),
+		multipliedBy: CGSize(width: 2, height: 1)
+	)
+)
 ```
 
-### 4. Other
-
+### 4. Set Priorities
 ```
-// Setting up aspect ratio
+NSLayoutConstraint.activate([
+	contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+	// Set priority without needing to assign to a local variable.
+	contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+		.with(priority: .defaultLow),
+	contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+	contentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+])
+
+// Set priority on an entire array of constraints.
+NSLayoutConstraint.activate(contentView.constraintsMatchingEdges(of: view.safeAreaLayoutGuide)
+	.with(priority: .defaultHigh))
+```
+
+### 5. Other
+```
+// Set up aspect ratio.
 imageView.aspectRatioConstraint().isActive = true // 1:1 aspect ratio
 imageView.aspectRatioConstraint(ratio: 16 / 9).isActive = true // 16:9 aspect ratio
+
+// Center a view.
+NSLayoutConstraint.activate(imageView.constraintsMatchingCenterOfSuperview())
+
+// Match the size of one view to another.
+NSLayoutConstraint.activate(imageView.constraintsMatchingSize(of: someOtherView))
+
+// Match the size of an array of views.
+let buttons = [/* ... */]
+NSLayoutConstraint.activate(buttons.constraintsMatchingSize())
 ```
 
 
@@ -82,7 +126,11 @@ override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollect
 Add this to your `Package.swift` file.
 
 ```
+// Add this to the dependencies of your package.
 .package(url: "https://github.com/kaiengelhardt/consti", from: "1.0.0"),
+
+// Then add this to the dependencies of the targets you want to use Consti in.
+.product(name: "Consti", package: "Consti"),
 ```
 
 # Contributions
