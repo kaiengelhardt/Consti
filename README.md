@@ -3,6 +3,17 @@
 # Consti
 Consti is a tiny library to make working with Auto Layout more convenient.
 
+# Installation
+Add this to your `Package.swift` file.
+
+```
+// Add this to the dependencies of your package.
+.package(url: "https://github.com/kaiengelhardt/consti", from: "1.0.0"),
+
+// Then add this to the dependencies of the targets you want to use Consti in.
+.product(name: "Consti", package: "Consti"),
+```
+
 # Usage
 
 ## Constraint Creation APIs
@@ -122,22 +133,21 @@ override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollect
 
 ```
 
-# Installation
-Add this to your `Package.swift` file.
-
-```
-// Add this to the dependencies of your package.
-.package(url: "https://github.com/kaiengelhardt/consti", from: "1.0.0"),
-
-// Then add this to the dependencies of the targets you want to use Consti in.
-.product(name: "Consti", package: "Consti"),
-```
-
 # Contributions
 Contributions in general are welcome, however there is a few guidelines to follow:
 
 1. This package is not intended to be a replacement for the Auto Layout API. The philosophy is "Fill the gaps and add a few helpers".
 2. New APIs should read and feel like they belong in UIKit directly, e.g. follow the same naming conventions and style.
 
+# License
+Consti is available under the MIT license. See the LICENSE file for more info.
+
+# Author
+Consti is developed by Kai Engelhardt. Get in touch!
+
+[Mastodon](https://mastodon.social/@kaiengelhardt)
+
+[LinkedIn](https://www.linkedin.com/in/kaiengelhardt/)
+
 # Name
-The name of the library is a combincation of the word constraint, which this library is all about, and my very good friend and colleague Konsti.
+The name of the library is a combination of the word constraint, which this library is all about, and my very good friend and colleague Konsti.
