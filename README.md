@@ -1,7 +1,7 @@
 ![Header image for Consti, the library providing convenience APIs for Apple's Auto Layout](.images/header.png "Header image – 'Consti - Convenient Auto Layout'")
 
 # Consti
-Consti is a tiny library to make working with Auto Layout more convenient.
+Consti (pronounced "Consty") is a tiny library to make working with Auto Layout more convenient.
 
 # Supported Platforms
 Consti supports iOS, macOS, macCatalyst, tvOS and visionOS.
